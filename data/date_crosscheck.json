@@ -1,0 +1,68 @@
+{
+  "method": "本文が元号年と干支の両方を書いている箇所だけを照合する。外部の年譜を用いないので循環しない(G-03)",
+  "checked": 6,
+  "agree": 6,
+  "disagree": 0,
+  "rows": [
+    {
+      "story": "18",
+      "kind": "strict",
+      "expr": "文化三、丙寅年",
+      "western": 1806,
+      "claimed": "丙寅",
+      "actual": "丙寅",
+      "agrees": true,
+      "evidence": "いう筋なんです」と、老人はしずかに語り出した。「文化三、丙寅年の正月の末頃から江戸では槍突きという悪"
+    },
+    {
+      "story": "31",
+      "kind": "adjacent",
+      "expr": "天保元年の庚寅年",
+      "western": 1830,
+      "claimed": "庚寅",
+      "actual": "庚寅",
+      "agrees": true,
+      "evidence": "行所の申渡書を調べさせると、石原の松蔵は天保元年の庚寅年の生まれということが判りました。寅年の男"
+    },
+    {
+      "story": "37",
+      "kind": "adjacent",
+      "expr": "弘化二年巳年",
+      "western": 1845,
+      "claimed": "巳",
+      "actual": "乙巳",
+      "agrees": true,
+      "evidence": "ったように云った。 　加賀屋の嫁のお元は弘化二年巳年の生まれと云っているが、実は弘化三年午年"
+    },
+    {
+      "story": "37",
+      "kind": "adjacent",
+      "expr": "弘化三年午年",
+      "western": 1846,
+      "claimed": "午",
+      "actual": "丙午",
+      "agrees": true,
+      "evidence": "弘化二年巳年の生まれと云っているが、実は弘化三年午年の生まれであるとお鉄は初めてその秘密を明"
+    },
+    {
+      "story": "65",
+      "kind": "strict",
+      "expr": "文化九申年",
+      "western": 1812,
+      "claimed": "申",
+      "actual": "壬申",
+      "agrees": true,
+      "evidence": "どこのお開帳もうまく行かなかったと見えます。 　文化九申年の三月三日から渋谷の長谷寺に、京都の清水観"
+    },
+    {
+      "story": "69",
+      "kind": "adjacent",
+      "expr": "文化九年――申年",
+      "western": 1812,
+      "claimed": "申",
+      "actual": "壬申",
+      "agrees": true,
+      "evidence": "    　　　　　一  　文化九年――申年の正月十八日の夜である。その夜も四ツ半（"
+    }
+  ]
+}

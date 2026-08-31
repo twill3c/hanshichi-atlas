@@ -1,0 +1,4 @@
+# 青空文庫原文とフィクスチャは改行コード(CRLF)がデータの一部 — 正規化禁止
+data/raw/** -text
+data/aozora_works.json -text
+tests/fixtures/** -text

@@ -1,0 +1,626 @@
+{
+  "note": "話ごとの基礎統計(実測)",
+  "stories": {
+    "01": {
+      "no": "01",
+      "title": "お文の魂",
+      "chars": 16401,
+      "ruby": 204,
+      "ruby_unique": 194,
+      "era_mentions": 3,
+      "dated_mentions": 1
+    },
+    "02": {
+      "no": "02",
+      "title": "石灯籠",
+      "chars": 16219,
+      "ruby": 164,
+      "ruby_unique": 153,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "03": {
+      "no": "03",
+      "title": "勘平の死",
+      "chars": 16159,
+      "ruby": 151,
+      "ruby_unique": 139,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "04": {
+      "no": "04",
+      "title": "湯屋の二階",
+      "chars": 15641,
+      "ruby": 138,
+      "ruby_unique": 116,
+      "era_mentions": 3,
+      "dated_mentions": 1
+    },
+    "05": {
+      "no": "05",
+      "title": "お化け師匠",
+      "chars": 16512,
+      "ruby": 168,
+      "ruby_unique": 152,
+      "era_mentions": 1,
+      "dated_mentions": 0
+    },
+    "06": {
+      "no": "06",
+      "title": "半鐘の怪",
+      "chars": 15979,
+      "ruby": 127,
+      "ruby_unique": 113,
+      "era_mentions": 0,
+      "dated_mentions": 0
+    },
+    "07": {
+      "no": "07",
+      "title": "奥女中",
+      "chars": 16486,
+      "ruby": 132,
+      "ruby_unique": 124,
+      "era_mentions": 2,
+      "dated_mentions": 1
+    },
+    "08": {
+      "no": "08",
+      "title": "帯取りの池",
+      "chars": 15589,
+      "ruby": 115,
+      "ruby_unique": 110,
+      "era_mentions": 4,
+      "dated_mentions": 1
+    },
+    "09": {
+      "no": "09",
+      "title": "春の雪解",
+      "chars": 15401,
+      "ruby": 117,
+      "ruby_unique": 103,
+      "era_mentions": 2,
+      "dated_mentions": 1
+    },
+    "10": {
+      "no": "10",
+      "title": "広重と河獺",
+      "chars": 18450,
+      "ruby": 139,
+      "ruby_unique": 129,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "11": {
+      "no": "11",
+      "title": "朝顔屋敷",
+      "chars": 15687,
+      "ruby": 134,
+      "ruby_unique": 124,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "12": {
+      "no": "12",
+      "title": "猫騒動",
+      "chars": 16150,
+      "ruby": 107,
+      "ruby_unique": 98,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "13": {
+      "no": "13",
+      "title": "弁天娘",
+      "chars": 19040,
+      "ruby": 174,
+      "ruby_unique": 146,
+      "era_mentions": 1,
+      "dated_mentions": 0
+    },
+    "14": {
+      "no": "14",
+      "title": "山祝いの夜",
+      "chars": 10691,
+      "ruby": 99,
+      "ruby_unique": 88,
+      "era_mentions": 2,
+      "dated_mentions": 1
+    },
+    "15": {
+      "no": "15",
+      "title": "鷹のゆくえ",
+      "chars": 19518,
+      "ruby": 142,
+      "ruby_unique": 119,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "16": {
+      "no": "16",
+      "title": "津の国屋",
+      "chars": 34083,
+      "ruby": 230,
+      "ruby_unique": 193,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "17": {
+      "no": "17",
+      "title": "三河万歳",
+      "chars": 16370,
+      "ruby": 196,
+      "ruby_unique": 176,
+      "era_mentions": 4,
+      "dated_mentions": 2
+    },
+    "18": {
+      "no": "18",
+      "title": "槍突き",
+      "chars": 15615,
+      "ruby": 149,
+      "ruby_unique": 135,
+      "era_mentions": 9,
+      "dated_mentions": 6
+    },
+    "19": {
+      "no": "19",
+      "title": "お照の父",
+      "chars": 15732,
+      "ruby": 142,
+      "ruby_unique": 124,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "20": {
+      "no": "20",
+      "title": "向島の寮",
+      "chars": 12434,
+      "ruby": 112,
+      "ruby_unique": 100,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "21": {
+      "no": "21",
+      "title": "蝶合戦",
+      "chars": 15345,
+      "ruby": 116,
+      "ruby_unique": 106,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "22": {
+      "no": "22",
+      "title": "筆屋の娘",
+      "chars": 15544,
+      "ruby": 114,
+      "ruby_unique": 103,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "23": {
+      "no": "23",
+      "title": "鬼娘",
+      "chars": 15352,
+      "ruby": 124,
+      "ruby_unique": 106,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "24": {
+      "no": "24",
+      "title": "小女郎狐",
+      "chars": 16992,
+      "ruby": 136,
+      "ruby_unique": 122,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "25": {
+      "no": "25",
+      "title": "狐と僧",
+      "chars": 8845,
+      "ruby": 86,
+      "ruby_unique": 68,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "26": {
+      "no": "26",
+      "title": "女行者",
+      "chars": 16474,
+      "ruby": 176,
+      "ruby_unique": 153,
+      "era_mentions": 6,
+      "dated_mentions": 4
+    },
+    "27": {
+      "no": "27",
+      "title": "化け銀杏",
+      "chars": 16828,
+      "ruby": 152,
+      "ruby_unique": 136,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "28": {
+      "no": "28",
+      "title": "雪達磨",
+      "chars": 10825,
+      "ruby": 107,
+      "ruby_unique": 100,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "29": {
+      "no": "29",
+      "title": "熊の死骸",
+      "chars": 15772,
+      "ruby": 175,
+      "ruby_unique": 150,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "30": {
+      "no": "30",
+      "title": "あま酒売",
+      "chars": 17054,
+      "ruby": 183,
+      "ruby_unique": 151,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "31": {
+      "no": "31",
+      "title": "張子の虎",
+      "chars": 16246,
+      "ruby": 194,
+      "ruby_unique": 164,
+      "era_mentions": 3,
+      "dated_mentions": 3
+    },
+    "32": {
+      "no": "32",
+      "title": "海坊主",
+      "chars": 17675,
+      "ruby": 176,
+      "ruby_unique": 145,
+      "era_mentions": 2,
+      "dated_mentions": 1
+    },
+    "33": {
+      "no": "33",
+      "title": "旅絵師",
+      "chars": 17424,
+      "ruby": 183,
+      "ruby_unique": 164,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "34": {
+      "no": "34",
+      "title": "雷獣と蛇",
+      "chars": 14077,
+      "ruby": 131,
+      "ruby_unique": 110,
+      "era_mentions": 4,
+      "dated_mentions": 2
+    },
+    "35": {
+      "no": "35",
+      "title": "半七先生",
+      "chars": 16559,
+      "ruby": 183,
+      "ruby_unique": 149,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "36": {
+      "no": "36",
+      "title": "冬の金魚",
+      "chars": 17971,
+      "ruby": 148,
+      "ruby_unique": 133,
+      "era_mentions": 3,
+      "dated_mentions": 1
+    },
+    "37": {
+      "no": "37",
+      "title": "松茸",
+      "chars": 17813,
+      "ruby": 163,
+      "ruby_unique": 147,
+      "era_mentions": 6,
+      "dated_mentions": 5
+    },
+    "38": {
+      "no": "38",
+      "title": "人形使い",
+      "chars": 15752,
+      "ruby": 159,
+      "ruby_unique": 140,
+      "era_mentions": 1,
+      "dated_mentions": 0
+    },
+    "39": {
+      "no": "39",
+      "title": "少年少女の死",
+      "chars": 11383,
+      "ruby": 108,
+      "ruby_unique": 92,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "40": {
+      "no": "40",
+      "title": "異人の首",
+      "chars": 16092,
+      "ruby": 119,
+      "ruby_unique": 106,
+      "era_mentions": 3,
+      "dated_mentions": 3
+    },
+    "41": {
+      "no": "41",
+      "title": "一つ目小僧",
+      "chars": 7871,
+      "ruby": 58,
+      "ruby_unique": 53,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "42": {
+      "no": "42",
+      "title": "仮面",
+      "chars": 7635,
+      "ruby": 64,
+      "ruby_unique": 59,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "43": {
+      "no": "43",
+      "title": "柳原堤の女",
+      "chars": 30217,
+      "ruby": 200,
+      "ruby_unique": 162,
+      "era_mentions": 2,
+      "dated_mentions": 1
+    },
+    "44": {
+      "no": "44",
+      "title": "むらさき鯉",
+      "chars": 16920,
+      "ruby": 139,
+      "ruby_unique": 113,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "45": {
+      "no": "45",
+      "title": "三つの声",
+      "chars": 12861,
+      "ruby": 90,
+      "ruby_unique": 73,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "46": {
+      "no": "46",
+      "title": "十五夜御用心",
+      "chars": 21060,
+      "ruby": 147,
+      "ruby_unique": 118,
+      "era_mentions": 1,
+      "dated_mentions": 1
+    },
+    "47": {
+      "no": "47",
+      "title": "金の蝋燭",
+      "chars": 21414,
+      "ruby": 164,
+      "ruby_unique": 141,
+      "era_mentions": 8,
+      "dated_mentions": 8
+    },
+    "48": {
+      "no": "48",
+      "title": "ズウフラ怪談",
+      "chars": 17262,
+      "ruby": 136,
+      "ruby_unique": 124,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "49": {
+      "no": "49",
+      "title": "大阪屋花鳥",
+      "chars": 26436,
+      "ruby": 222,
+      "ruby_unique": 180,
+      "era_mentions": 12,
+      "dated_mentions": 9
+    },
+    "50": {
+      "no": "50",
+      "title": "正雪の絵馬",
+      "chars": 26309,
+      "ruby": 187,
+      "ruby_unique": 155,
+      "era_mentions": 11,
+      "dated_mentions": 8
+    },
+    "51": {
+      "no": "51",
+      "title": "大森の鶏",
+      "chars": 18556,
+      "ruby": 194,
+      "ruby_unique": 156,
+      "era_mentions": 4,
+      "dated_mentions": 1
+    },
+    "52": {
+      "no": "52",
+      "title": "妖狐伝",
+      "chars": 21252,
+      "ruby": 136,
+      "ruby_unique": 117,
+      "era_mentions": 4,
+      "dated_mentions": 3
+    },
+    "53": {
+      "no": "53",
+      "title": "新カチカチ山",
+      "chars": 23364,
+      "ruby": 192,
+      "ruby_unique": 152,
+      "era_mentions": 6,
+      "dated_mentions": 5
+    },
+    "54": {
+      "no": "54",
+      "title": "唐人飴",
+      "chars": 23847,
+      "ruby": 202,
+      "ruby_unique": 154,
+      "era_mentions": 6,
+      "dated_mentions": 2
+    },
+    "55": {
+      "no": "55",
+      "title": "かむろ蛇",
+      "chars": 23717,
+      "ruby": 210,
+      "ruby_unique": 175,
+      "era_mentions": 7,
+      "dated_mentions": 1
+    },
+    "56": {
+      "no": "56",
+      "title": "河豚太鼓",
+      "chars": 22560,
+      "ruby": 163,
+      "ruby_unique": 126,
+      "era_mentions": 15,
+      "dated_mentions": 6
+    },
+    "57": {
+      "no": "57",
+      "title": "幽霊の観世物",
+      "chars": 18833,
+      "ruby": 128,
+      "ruby_unique": 107,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "58": {
+      "no": "58",
+      "title": "菊人形の昔",
+      "chars": 18688,
+      "ruby": 138,
+      "ruby_unique": 115,
+      "era_mentions": 7,
+      "dated_mentions": 3
+    },
+    "59": {
+      "no": "59",
+      "title": "蟹のお角",
+      "chars": 21314,
+      "ruby": 136,
+      "ruby_unique": 107,
+      "era_mentions": 9,
+      "dated_mentions": 5
+    },
+    "60": {
+      "no": "60",
+      "title": "青山の仇討",
+      "chars": 22283,
+      "ruby": 153,
+      "ruby_unique": 133,
+      "era_mentions": 2,
+      "dated_mentions": 2
+    },
+    "61": {
+      "no": "61",
+      "title": "吉良の脇指",
+      "chars": 22895,
+      "ruby": 165,
+      "ruby_unique": 139,
+      "era_mentions": 9,
+      "dated_mentions": 5
+    },
+    "62": {
+      "no": "62",
+      "title": "歩兵の髪切り",
+      "chars": 21372,
+      "ruby": 153,
+      "ruby_unique": 130,
+      "era_mentions": 5,
+      "dated_mentions": 3
+    },
+    "63": {
+      "no": "63",
+      "title": "川越次郎兵衛",
+      "chars": 22839,
+      "ruby": 127,
+      "ruby_unique": 107,
+      "era_mentions": 4,
+      "dated_mentions": 2
+    },
+    "64": {
+      "no": "64",
+      "title": "廻り灯籠",
+      "chars": 21583,
+      "ruby": 137,
+      "ruby_unique": 116,
+      "era_mentions": 2,
+      "dated_mentions": 1
+    },
+    "65": {
+      "no": "65",
+      "title": "夜叉神堂",
+      "chars": 11849,
+      "ruby": 80,
+      "ruby_unique": 78,
+      "era_mentions": 6,
+      "dated_mentions": 2
+    },
+    "66": {
+      "no": "66",
+      "title": "地蔵は踊る",
+      "chars": 21173,
+      "ruby": 152,
+      "ruby_unique": 132,
+      "era_mentions": 5,
+      "dated_mentions": 2
+    },
+    "67": {
+      "no": "67",
+      "title": "薄雲の碁盤",
+      "chars": 19715,
+      "ruby": 128,
+      "ruby_unique": 115,
+      "era_mentions": 6,
+      "dated_mentions": 5
+    },
+    "68": {
+      "no": "68",
+      "title": "二人女房",
+      "chars": 24000,
+      "ruby": 169,
+      "ruby_unique": 135,
+      "era_mentions": 2,
+      "dated_mentions": 1
+    },
+    "69": {
+      "no": "69",
+      "title": "白蝶怪",
+      "chars": 78425,
+      "ruby": 637,
+      "ruby_unique": 410,
+      "era_mentions": 2,
+      "dated_mentions": 1
+    }
+  }
+}
