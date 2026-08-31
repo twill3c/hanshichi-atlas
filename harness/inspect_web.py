@@ -203,6 +203,30 @@ def inspect(base: str, rep: Report) -> None:
             )
             rep.check(over <= 1, f"[{w}px] リーダー: 横の溢れ {over}px")
 
+            # フリート共通フッタ —— 在ることではなく、**見えていて本文を隠さないこと**を見る
+            for name in ("index.html", "map.html", "lens.html", "reader.html?w=01"):
+                page.goto(f"{base}/{name}", wait_until="networkidle")
+                page.wait_for_selector(".fleet-footer")
+                ft = page.locator(".fleet-footer")
+                rep.check(ft.is_visible(), f"[{w}px] フッタ({name}): 見えている")
+                links = ft.locator("a").count()
+                rep.check(links == 5, f"[{w}px] フッタ({name}): 項目 {links} 件")
+                box = ft.bounding_box()
+                vh = page.evaluate("() => window.innerHeight")
+                rep.check(
+                    box is not None and abs((box["y"] + box["height"]) - vh) <= 2,
+                    f"[{w}px] フッタ({name}): 画面の下端に固定されている",
+                )
+                # 最後まで送っても本文の末尾がフッタに隠れないこと
+                page.evaluate("() => window.scrollTo(0, document.body.scrollHeight)")
+                page.wait_for_timeout(80)
+                hidden = page.evaluate(
+                    "() => { const f = document.querySelector('.fleet-footer').getBoundingClientRect();"
+                    "const m = document.querySelector('main').getBoundingClientRect();"
+                    "return m.bottom > f.top ? Math.round(m.bottom - f.top) : 0; }"
+                )
+                rep.check(hidden == 0, f"[{w}px] フッタ({name}): 本文の末尾を {hidden}px 隠していない")
+
             page.close()
         browser.close()
 

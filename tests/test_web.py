@@ -110,23 +110,40 @@ def test_t604_palette_is_the_validated_one():
 NON_FETCHED_URLS = {"http://www.w3.org/2000/svg"}
 
 
+#: 取得を起こす書き方。**リンク(`<a href>`)は取得ではない**ので数えない ——
+#: フッタは GitHub や App Menu へのリンクを持つが、ページを開いただけでは何も取りに行かない。
+#: 「言及」と「依存」を分ける線をここに引く(HC-074)。
+FETCHING = [
+    re.compile(r"""<(?:script|img|iframe|video|audio|source)\s[^>]*\bsrc\s*=\s*["']([^"']+)"""),
+    re.compile(r"""<link\s[^>]*\bhref\s*=\s*["']([^"']+)"""),
+    re.compile(r"""\b(?:fetch|importScripts)\s*\(\s*["']([^"']+)"""),
+    re.compile(r"""url\(\s*["']?([^"')]+)"""),
+]
+
+
+def _fetched(src: str) -> list[str]:
+    out = []
+    for pat in FETCHING:
+        out += [u for u in pat.findall(src) if u.startswith(("http://", "https://", "//"))]
+    return [u for u in out if u not in NON_FETCHED_URLS]
+
+
 def test_t605_pages_are_self_contained():
     """T-605 / N-01 — ページが外部から何かを取りに行かない(静的・サーバ不要)。
 
-    最初は「http で始まる文字列があれば違反」と書いて、SVG の名前空間を落とした。
-    名前空間は**宣言**であって取得ではない。除外は列挙し、緩みすぎないことを対照で押さえる。
+    二度、線を引き直した。最初は「http で始まる文字列があれば違反」と書いて
+    SVG の名前空間を落とし、次にフリート共通フッタを入れたときに
+    GitHub・App Menu への**リンク**を落とした。名前空間は宣言、リンクは移動であって、
+    どちらも取得ではない。見るのは取得を起こす書き方(src / link / fetch / url())だけにする。
     """
-    for name in ("index.html", "reader.html", "app.js", "reader.js", "style.css"):
-        src = (WEB / name).read_text(encoding="utf-8")
-        urls = [u for u in re.findall(r"https?://[^\s\"')]+", src) if u not in NON_FETCHED_URLS]
-        assert not urls, f"{name} が外部を参照している: {urls}"
-    # 対照 —— 除外リストが広すぎないこと。本物の外部参照は捕まる
-    probe = [
-        u
-        for u in re.findall(r"https?://[^\s\"')]+", '<script src="https://cdn.example.com/x.js">')
-        if u not in NON_FETCHED_URLS
-    ]
-    assert probe, "除外が広すぎて、本物の外部参照まで見逃す"
+    for name in ("index.html", "reader.html", "map.html", "lens.html", "app.js", "reader.js", "map.js", "lens.js", "style.css"):
+        assert not _fetched((WEB / name).read_text(encoding="utf-8")), f"{name} が外部から取得している"
+    # 対照 —— 線が緩すぎないこと。本物の外部取得は捕まる
+    assert _fetched('<script src="https://cdn.example.com/x.js"></script>')
+    assert _fetched('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=X">')
+    assert _fetched('body{background:url("https://example.com/a.png")}')
+    # リンクは取得ではないので撃たない
+    assert not _fetched('<a href="https://github.com/twill3c/hanshichi-atlas">GitHub</a>')
 
 
 def test_t606_every_story_has_a_reader_payload(index):
@@ -145,3 +162,24 @@ def test_t607_undetermined_stories_show_no_year(index):
             continue
         assert all(not c["years"] for c in s["cases"])
         assert s["reason"], f"{s['no']}: 理由が画面データに載っていない"
+
+
+def test_t901_fleet_footer_on_every_page():
+    """T-901 / F-13 — フリート共通フッタが全ページの下部に固定で入っている。
+
+    規約は 5 項目・この並び(koho-lens 準拠)。本文が隠れないよう body に逃げを作る。
+    """
+    items = ["MIT License © 2026 坂田哲朗", "GitHub", "半七アトラスの歩き方", "設計図", "App Menu"]
+    for name in ("index.html", "map.html", "lens.html", "reader.html"):
+        src = (WEB / name).read_text(encoding="utf-8")
+        assert 'class="fleet-footer"' in src, f"{name} にフッタが無い"
+        pos = -1
+        for label in items:
+            i = src.find(label)
+            assert i > 0, f"{name} のフッタに「{label}」が無い"
+            assert i > pos, f"{name} のフッタの並びが規約と違う({label})"
+            pos = i
+    css = (WEB / "style.css").read_text(encoding="utf-8")
+    assert "/* fleet: fixed footer" in css, "フリートのマーカーコメントが無い"
+    assert "position: fixed" in css.split("/* fleet: fixed footer")[1]
+    assert "padding-bottom" in css.split("/* fleet: fixed footer")[1], "本文の逃げが無い"
