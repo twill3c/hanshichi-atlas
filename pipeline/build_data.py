@@ -9,6 +9,9 @@
     data/eras.json           元号語の全出現とその分類
     data/date_crosscheck.json 元号年と干支の内部照合
     data/hanshichi_age.json  半七の年齢言明の台帳
+    data/case_years.json     各話の事件年の台帳(F-07)
+    data/crossrefs.json      話どうしの相互参照とその年代照合
+    data/shared_events.json  複数の話が語る同じ出来事の日付照合
     data/stats.json          話ごとの基礎統計
 """
 
@@ -17,7 +20,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from pipeline import age, crosscheck
+from pipeline import age, case_years, crosscheck, crossrefs, shared_events
 from pipeline.aozora_parser import extract_main_text, parse, plain_text, ruby_pairs
 from pipeline.era_scan import scan
 
@@ -73,6 +76,9 @@ def build() -> None:
     )
     _write("date_crosscheck.json", crosscheck.build())
     _write("hanshichi_age.json", age.build())
+    _write("case_years.json", case_years.build())
+    _write("crossrefs.json", crossrefs.build())
+    _write("shared_events.json", shared_events.build())
 
     total = sum(s["chars"] for s in stats.values())
     print(f"{len(stats)} 話 / 総 {total:,} 字 / ルビ {sum(s['ruby'] for s in stats.values()):,}")
