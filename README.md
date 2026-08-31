@@ -8,7 +8,18 @@
 
 ## いまの状態
 
-L2(事件年の確定)まで。Web ページはまだ無い。
+L3(年表とリーダー)まで。**画面が出る。**まだデプロイしていない。
+
+```bash
+python -m pipeline.build_web            # web/data/ を作る
+python -m http.server -d web            # http://localhost:8000/
+python harness/inspect_web.py           # 実ブラウザ検品(3 つの幅)
+python harness/inspect_web.py --control # 検品器自身が発火するか
+```
+
+- `web/index.html` — 年表。同じ目盛りの上に江戸の事件と明治の語りを並べ、
+  下に半七の生涯を敷いた。点をたどるとその話を読める。連載順 / 事件年代順で並べ替わる表つき
+- `web/reader.html?w=01` — ルビ表示付き本文。ルビは切って読める
 
 ## 事件年(L2 の実測)
 

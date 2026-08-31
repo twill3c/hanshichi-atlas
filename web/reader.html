@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>リーダー — 半七アトラス</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <h1 id="title">—</h1>
+    <p class="sub" id="sub"></p>
+    <nav class="views">
+      <a href="index.html">年表</a>
+      <a href="reader.html" aria-current="page">リーダー</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="readerbar">
+    <label for="pick">話</label>
+    <select id="pick"></select>
+    <button class="seg" type="button" id="rubytoggle" aria-pressed="true">ルビ</button>
+    <span class="muted" id="prevnext"></span>
+  </div>
+  <p class="meta" id="meta"></p>
+  <p class="evidence" id="evidence" hidden></p>
+  <div class="reader" id="body">読み込み中…</div>
+</main>
+
+<script src="reader.js"></script>
+</body>
+</html>

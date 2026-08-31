@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>半七アトラス — 二つの時計</title>
+<meta name="description" content="青空文庫の岡本綺堂『半七捕物帳』全69話を、語る明治と語られる江戸という二つの時間から俯瞰する。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <h1>半七アトラス</h1>
+    <p class="sub">岡本綺堂『半七捕物帳』全 69 話 — 二つの時計</p>
+    <p class="lede">
+      半七物はすべて聞き書きである。明治の「わたし」が老いた半七を訪ね、半七が江戸の事件を語る。
+      だから一話の中には時間が二つある。<strong>語る現在</strong>と<strong>語られる過去</strong>。
+      本文はその両方に年を書くので、二つを分けて並べられる。
+    </p>
+    <nav class="views">
+      <a href="index.html" aria-current="page">年表</a>
+      <a href="reader.html?w=01">リーダー</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tiles" id="tiles"></div>
+
+  <h2>二つの時計</h2>
+  <p class="note">
+    同じ目盛りの上に、江戸の事件と明治の語りを並べた。点はひとつが一件の事件、あるいは
+    語りの年である。半七の生涯は下の細い線で、生年・初陣・語り手と出会った頃に印を置いた。
+    <strong>語りの年を本文に書く話は 8 話しかない</strong>ので、下の帯はそこにしか点が立たない
+    —— 残りの話は語りの現在を年ではなく季節や祭りで置いている。埋めていない。
+  </p>
+  <div class="legend" id="legend"></div>
+  <figure>
+    <div class="chart"><svg id="main-chart" role="img" aria-labelledby="main-chart-title"><title id="main-chart-title">半七の生涯の上に置いた、江戸の事件と明治の語りの年表</title></svg></div>
+    <figcaption id="main-caption"></figcaption>
+  </figure>
+
+  <h2>半七の生前に置かれた話</h2>
+  <p class="note">
+    「半七の事件は初陣より後」という不等式に引っかかった 5 話。読み返すと、いずれも半七の探索ではなかった。
+    69「白蝶怪」は全 69 話で最も長い一編だが、動くのは半七の親分・吉五郎の世代である。
+    <strong>目盛りが上の図と違う</strong>ことに注意。
+  </p>
+  <figure>
+    <div class="chart"><svg id="old-chart" role="img" aria-labelledby="old-chart-title"><title id="old-chart-title">半七の生前に置かれた 5 話の年表</title></svg></div>
+    <figcaption id="old-caption"></figcaption>
+  </figure>
+
+  <h2>69 話</h2>
+  <p class="note">
+    並べ替えると、連載の順と事件の順が別物であることが見える。
+    事件年は本文に書かれたものだけを採り、<strong>確定できない話は空欄のままにしてある</strong>。
+  </p>
+  <div class="controls">
+    <label>並べ替え</label>
+    <button class="seg" type="button" data-sort="no" aria-pressed="true">連載順</button>
+    <button class="seg" type="button" data-sort="year" aria-pressed="false">事件年代順</button>
+    <label for="kindsel" style="margin-left:8px">分類</label>
+    <select id="kindsel"><option value="">すべて</option></select>
+    <span class="muted" id="rowcount"></span>
+  </div>
+  <div class="tablewrap">
+    <table id="tbl">
+      <thead><tr>
+        <th>通番</th><th>題名</th><th>事件年</th><th>分類</th>
+        <th class="num">字数</th><th class="num">ルビ</th><th>根拠</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>話どうしが互いを検算する</h2>
+  <p class="note">
+    69 話は互いを題名で参照する。参照と同じ文の中に年の主張があるものだけを、参照先の事件年と
+    突き合わせた。どちらの年も各話が自分の本文で書いたもので、外部の年譜は使っていない。
+  </p>
+  <div class="tablewrap">
+    <table id="reftbl">
+      <thead><tr><th>参照</th><th>根拠</th><th>期待</th><th>実際</th><th>照合</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>同じ出来事を二度書けば、二度間違えられる</h2>
+  <p class="note" id="events-note"></p>
+  <div class="tablewrap">
+    <table id="evtbl">
+      <thead><tr><th>出来事</th><th>話</th><th>本文の日付</th><th>年</th><th>月</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</main>
+
+<div class="tip" id="tip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
