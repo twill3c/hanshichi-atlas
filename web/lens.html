@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ルビの地層 — 半七アトラス</title>
+<meta name="description" content="『半七捕物帳』全69話のルビ10,680件を数える。ルビは難しい語の印ではなく、その話での初出の印だった。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <h1>ルビの地層</h1>
+    <p class="sub">10,680 のルビは何の印か</p>
+    <p class="lede">
+      青空文庫の底本は<strong>光文社文庫『時代推理小説 半七捕物帳』全 6 巻(1985 年初版)</strong>である。
+      だからここにあるルビは大正の連載時のものではなく、<strong>昭和末の校訂による</strong>。
+      綺堂が振ったルビとして読んではいけない。
+    </p>
+    <nav class="views">
+      <a href="index.html">年表</a>
+      <a href="map.html">捜査圏</a>
+      <a href="lens.html" aria-current="page">ルビの地層</a>
+      <a href="reader.html?w=01">リーダー</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tiles" id="tiles"></div>
+
+  <h2>ルビは「難しい語」の印ではない</h2>
+  <p class="note" id="finding"></p>
+  <p class="evidence" id="finding2"></p>
+
+  <h2>字数とルビ数</h2>
+  <p class="note">
+    一点が一話。ルビの数は字数にほぼ比例する。点にかざすと話が分かる。
+    比例から離れた話が、密度の高い話・低い話である。
+  </p>
+  <figure>
+    <div class="chart"><svg id="scatter" role="img" aria-labelledby="scatter-title"><title id="scatter-title">話ごとの字数とルビ数の散布図</title></svg></div>
+    <figcaption id="scatter-caption"></figcaption>
+  </figure>
+
+  <h2>底本の巻ごとの密度</h2>
+  <p class="note" id="vol-note"></p>
+  <div class="tablewrap">
+    <table id="vtbl">
+      <thead><tr><th>巻</th><th class="num">話数</th><th class="num">字数</th><th class="num">ルビ</th><th class="num">千字あたり</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>読みが二通り以上ある語</h2>
+  <p class="note" id="multi-note"></p>
+  <div class="tablewrap">
+    <table id="mtbl">
+      <thead><tr><th>語</th><th>読みと回数</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>ルビ語彙</h2>
+  <p class="note">
+    語と読みの組で数えた。<strong>話数</strong>は、その組が現れた話の数である。
+  </p>
+  <div class="controls">
+    <label for="q">絞り込み</label>
+    <input id="q" type="search" placeholder="語または読み" style="font:inherit;font-size:14px;padding:5px 10px;border:1px solid var(--border);background:var(--surface);color:var(--ink)">
+    <span class="muted" id="wcount"></span>
+  </div>
+  <div class="tablewrap">
+    <table id="wtbl">
+      <thead><tr><th>語</th><th>読み</th><th class="num">回数</th><th class="num">話数</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>初出でないところに付いた例</h2>
+  <p class="note" id="exc-note"></p>
+  <div class="tablewrap">
+    <table id="etbl">
+      <thead><tr><th>話</th><th>語</th><th>初出のところ(ルビ無し)</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</main>
+
+<div class="tip" id="tip" hidden></div>
+<script src="lens.js"></script>
+</body>
+</html>

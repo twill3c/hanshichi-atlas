@@ -159,6 +159,27 @@ def inspect(base: str, rep: Report) -> None:
             )
             rep.check(over <= 1, f"[{w}px] 捜査圏: 横の溢れ {over}px")
 
+            # ルビの地層
+            errors.clear()
+            page.goto(f"{base}/lens.html", wait_until="networkidle")
+            page.wait_for_selector("#wtbl tbody tr")
+            rep.check(not errors, f"[{w}px] ルビ: コンソールエラー {len(errors)} 件 {errors[:2]}")
+            pts = page.locator("#scatter circle").count()
+            rep.check(pts == n_stories, f"[{w}px] ルビ: 散布図の点 {pts} / 話数 {n_stories}")
+            before = page.locator("#wtbl tbody tr").count()
+            page.fill("#q", "うち")
+            page.wait_for_timeout(150)
+            after = page.locator("#wtbl tbody tr").count()
+            rep.check(0 < after < before, f"[{w}px] ルビ: 絞り込みで {before} → {after} 行")
+            rep.check(
+                page.locator("#vtbl tbody tr").count() == 6,
+                f"[{w}px] ルビ: 底本の巻が 6 行",
+            )
+            over = page.evaluate(
+                "() => document.documentElement.scrollWidth - document.documentElement.clientWidth"
+            )
+            rep.check(over <= 1, f"[{w}px] ルビ: 横の溢れ {over}px")
+
             # リーダー
             errors.clear()
             page.goto(f"{base}/reader.html?w=69", wait_until="networkidle")

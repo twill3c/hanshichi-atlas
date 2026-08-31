@@ -155,6 +155,10 @@ def main() -> None:
         json.dumps(index, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8"
     )
     print(f"  → web/data/index.json({len(index['stories'])} 話)")
+    (WEB / "ruby.json").write_text(
+        (DATA / "ruby.json").read_text(encoding="utf-8"), encoding="utf-8"
+    )
+    print("  → web/data/ruby.json")
     total = 0
     for s in index["stories"]:
         blob = json.dumps(build_story(s["no"]), ensure_ascii=False, separators=(",", ":"))
