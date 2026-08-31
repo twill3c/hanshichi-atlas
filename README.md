@@ -8,7 +8,20 @@
 
 ## いまの状態
 
-L3(年表とリーダー)まで。**画面が出る。**まだデプロイしていない。
+L6 まで。四つの面が動き、フリート共通フッタが入り、GitHub で公開している。
+**本番デプロイだけが Vercel の日次上限(100 件/日)で保留中**。上限が戻ったら次を実行する。
+
+```bash
+vercel deploy --prod --yes --scope twill3c-8670s-projects
+```
+
+GitHub 連携は接続済みなので、push でも本番に出る。本番が生きてから app-menu に掲載する
+—— 死んだ URL を一覧に載せない。
+
+- 本番(予定) https://hanshichi-atlas.vercel.app/
+- GitHub https://github.com/twill3c/hanshichi-atlas
+- [半七アトラスの歩き方](https://claude.ai/code/artifact/e6336ecb-7681-4df6-9dfc-7da9022c31e5)
+- [設計図](https://claude.ai/code/artifact/e3b2832e-d67f-4645-b020-bcd2efbfffac)
 
 ```bash
 python -m pipeline.build_web            # web/data/ を作る
