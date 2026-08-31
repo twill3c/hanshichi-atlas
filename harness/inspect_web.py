@@ -126,6 +126,39 @@ def inspect(base: str, rep: Report) -> None:
                 f"[{w}px] 年表: 事件年代順にすると先頭が {first_before} → {first_after}",
             )
 
+            # 捜査圏
+            errors.clear()
+            page.goto(f"{base}/map.html", wait_until="networkidle")
+            page.wait_for_selector("#ptbl tbody tr")
+            rep.check(not errors, f"[{w}px] 捜査圏: コンソールエラー {len(errors)} 件 {errors[:2]}")
+            # 図は 2 面ある。全体の図が表と一致し、核の図はその部分集合であること
+            core_dots = page.locator("#map-chart circle").count()
+            wide_dots = page.locator("#wide-chart circle").count()
+            rows = page.locator("#ptbl tbody tr").count()
+            rep.check(wide_dots == rows, f"[{w}px] 捜査圏: 全体の図の点 {wide_dots} と表の行 {rows} が一致")
+            rep.check(
+                0 < core_dots < wide_dots,
+                f"[{w}px] 捜査圏: 核の図 {core_dots} 点は全体 {wide_dots} 点の一部",
+            )
+            labels = page.locator("#map-chart text").count()
+            rep.check(labels > 5, f"[{w}px] 捜査圏: 図に出した地名 {labels} 件")
+            box = page.locator("#map-chart").bounding_box()
+            rep.check(
+                box is not None and 0.3 < box["height"] / box["width"] < 1.6,
+                f"[{w}px] 捜査圏: 図の縦横 {box and round(box['width'])}x{box and round(box['height'])}",
+            )
+            before = page.locator("#map-chart text").count()
+            page.select_option("#storysel", "69")
+            page.wait_for_timeout(150)
+            rep.check(
+                page.locator("#map-chart text").count() != before,
+                f"[{w}px] 捜査圏: 話を選ぶと図が描き変わる",
+            )
+            over = page.evaluate(
+                "() => document.documentElement.scrollWidth - document.documentElement.clientWidth"
+            )
+            rep.check(over <= 1, f"[{w}px] 捜査圏: 横の溢れ {over}px")
+
             # リーダー
             errors.clear()
             page.goto(f"{base}/reader.html?w=69", wait_until="networkidle")

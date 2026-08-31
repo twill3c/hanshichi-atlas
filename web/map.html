@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>捜査圏 — 半七アトラス</title>
+<meta name="description" content="『半七捕物帳』全69話に出る江戸の地名を、外部の地名辞書で同定して配置した図。同定できなかった地名も一覧に残してある。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <h1>捜査圏</h1>
+    <p class="sub">半七の足はどこまで伸びるか</p>
+    <p class="lede">
+      本文に出る地名を、外部の地名辞書(Wikidata)と照合して置いた。
+      <strong>下敷きの地図は無い。</strong>点の位置は経緯度そのもので、江戸の絵図でも現代の地図でもない。
+      辞書で決められなかった地名は置いていない —— それも下に並べてある。
+    </p>
+    <nav class="views">
+      <a href="index.html">年表</a>
+      <a href="map.html" aria-current="page">捜査圏</a>
+      <a href="reader.html?w=01">リーダー</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tiles" id="tiles"></div>
+
+  <h2>点の散らばり</h2>
+  <p class="note">
+    丸の大きさは言及の多さ。話を選ぶと、その話に出る地名だけが濃くなる。
+    <strong>半七の家(神田三河町)は辞書に無いので置けない。</strong>
+    代わりに、それを含む神田を印で示した。
+  </p>
+  <div class="controls">
+    <label for="storysel">話</label>
+    <select id="storysel"><option value="">すべて</option></select>
+    <span class="muted" id="storynote"></span>
+  </div>
+  <figure>
+    <div class="chart"><svg id="map-chart" role="img" aria-labelledby="map-title"><title id="map-title">江戸の核に集まる地名の配置</title></svg></div>
+    <figcaption id="map-caption"></figcaption>
+  </figure>
+
+  <h2>外まで含めた広がり</h2>
+  <p class="note">
+    上の図は言及の集まる範囲を切り出したもので、そこから外れる地名もある。
+    こちらは置けた地名すべて。破線の枠が上の図の範囲にあたる。
+  </p>
+  <figure>
+    <div class="chart"><svg id="wide-chart" role="img" aria-labelledby="wide-title"><title id="wide-title">置けた地名すべての広がり</title></svg></div>
+    <figcaption id="wide-caption"></figcaption>
+  </figure>
+
+  <h2>置けた地名</h2>
+  <p class="note" id="mapped-note"></p>
+  <div class="tablewrap">
+    <table id="ptbl">
+      <thead><tr><th>地名</th><th class="num">言及</th><th class="num">話数</th><th>緯度</th><th>経度</th><th>Wikidata</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>置けなかった地名</h2>
+  <p class="note">
+    地図に出ていないことは、本文に出ていないことを意味しない。<strong>置けなかったものを並べておく。</strong>
+    黙って消せば、地図は「これで全部だ」という顔をする。
+  </p>
+  <div id="missing"></div>
+
+  <h2>採らなかった見出し語</h2>
+  <p class="note" id="reject-note"></p>
+  <div class="tablewrap">
+    <table id="rtbl">
+      <thead><tr><th>見出し語</th><th>採らない理由</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</main>
+
+<div class="tip" id="tip" hidden></div>
+<script src="map.js"></script>
+</body>
+</html>

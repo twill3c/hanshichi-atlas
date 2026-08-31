@@ -75,6 +75,7 @@ def build_index() -> dict:
             }
         )
 
+    pl = _load("places.json")
     age = _load("hanshichi_age.json")
     birth = age["hanshichi_birth_candidates"][0]
     return {
@@ -93,8 +94,25 @@ def build_index() -> dict:
             for r in _load("crossrefs.json")["rows"]
         ],
         "shared_events": _load("shared_events.json")["events"],
+        "places": {
+            "method": pl["method"],
+            "mapped": pl["places"],
+            "unresolved": pl["unresolved"],
+            "not_in_gazetteer": pl["not_in_gazetteer"],
+            "rejected": pl["rejected"],
+            "rejected_examples": _rejected_examples(),
+            "mentions": pl["mentions"],
+            "by_story": pl["by_story"],
+        },
         "stories": stories,
     }
+
+
+def _rejected_examples() -> list[dict]:
+    """不採用の理由を画面にも出す。見えない除外は、見ていない除外と区別がつかない。"""
+    from pipeline.places import REJECT
+
+    return [{"label": k, "reason": v} for k, v in sorted(REJECT.items())]
 
 
 def build_story(no: str) -> dict:
