@@ -169,7 +169,9 @@ def test_t901_fleet_footer_on_every_page():
 
     規約は 5 項目・この並び(koho-lens 準拠)。本文が隠れないよう body に逃げを作る。
     """
-    items = ["MIT License © 2026 坂田哲朗", "GitHub", "半七アトラスの歩き方", "設計図", "App Menu"]
+    # 正本(koho-lens)は「MIT License」だけをリンクにし、行先は LICENSE ファイル。
+    # このリポジトリの既定ブランチは master なので blob/master を見る。
+    items = ["MIT License", "© 2026 坂田哲朗", "GitHub", "半七アトラスの歩き方", "半七アトラスの設計図", "App Menu"]
     for name in ("index.html", "map.html", "lens.html", "reader.html"):
         src = (WEB / name).read_text(encoding="utf-8")
         assert 'class="fleet-footer"' in src, f"{name} にフッタが無い"
@@ -179,6 +181,11 @@ def test_t901_fleet_footer_on_every_page():
             assert i > 0, f"{name} のフッタに「{label}」が無い"
             assert i > pos, f"{name} のフッタの並びが規約と違う({label})"
             pos = i
+        # 外部へ出るリンクは新しいタブで開き、opener を渡さない(正本に合わせる)
+        for href in re.findall(r'<footer class="fleet-footer">.*?</footer>', src, re.S):
+            for tag in re.findall(r"<a\s[^>]*>", href):
+                assert 'target="_blank"' in tag and "noopener" in tag, f"{name}: {tag}"
+        assert "/blob/master/LICENSE" in src, f"{name}: MIT の行先が LICENSE ファイルでない"
     css = (WEB / "style.css").read_text(encoding="utf-8")
     assert "/* fleet: fixed footer" in css, "フリートのマーカーコメントが無い"
     assert "position: fixed" in css.split("/* fleet: fixed footer")[1]
