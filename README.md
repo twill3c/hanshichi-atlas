@@ -8,49 +8,27 @@
 
 ## いまの状態
 
-L6 まで。四つの面が動き、フリート共通フッタが入り、GitHub で公開している。
-**本番デプロイだけが Vercel の日次上限(100 件/日)で保留中**。上限が戻ったら次を実行する。
+**本番稼働中。**四つの面が動き、フリート共通フッタが入り、app-menu に掲載済み。
 
-```bash
-vercel deploy --prod --yes --scope twill3c-8670s-projects
-```
-
-GitHub 連携は接続済みなので、push でも本番に出る。本番が生きてから app-menu に掲載する
-—— 死んだ URL を一覧に載せない。
-
-- 本番(予定) https://hanshichi-atlas.vercel.app/
+- 本番 https://hanshichi-atlas.vercel.app/
 - GitHub https://github.com/twill3c/hanshichi-atlas
 - [半七アトラスの歩き方](https://claude.ai/code/artifact/e6336ecb-7681-4df6-9dfc-7da9022c31e5)
 - [設計図](https://claude.ai/code/artifact/e3b2832e-d67f-4645-b020-bcd2efbfffac)
+
+| 面 | 見せるもの |
+|---|---|
+| [年表](https://hanshichi-atlas.vercel.app/) | 同じ目盛りに江戸の事件と明治の語りを並べ、下に半七の生涯を敷く |
+| [捜査圏](https://hanshichi-atlas.vercel.app/map.html) | 本文の地名を外部辞書で同定して配置(下敷きの地図は無い) |
+| [ルビの地層](https://hanshichi-atlas.vercel.app/lens.html) | ルビ 10,680 件が何の印なのかを数える |
+| [リーダー](https://hanshichi-atlas.vercel.app/reader.html?w=01) | ルビ表示付き本文 |
 
 ```bash
 python -m pipeline.build_web            # web/data/ を作る
 python -m http.server -d web            # http://localhost:8000/
 python harness/inspect_web.py           # 実ブラウザ検品(3 つの幅)
 python harness/inspect_web.py --control # 検品器自身が発火するか
+python -m pytest -q                     # テスト 63 件
 ```
-
-- `web/index.html` — 年表。同じ目盛りの上に江戸の事件と明治の語りを並べ、
-  下に半七の生涯を敷いた。点をたどるとその話を読める。連載順 / 事件年代順で並べ替わる表つき
-- `web/map.html` — 捜査圏。本文の地名を外部辞書で同定して配置した図(下敷きの地図は無い)
-- `web/lens.html` — ルビの地層。ルビ 10,680 件が何の印なのかを数える
-- `web/reader.html?w=01` — ルビ表示付き本文。ルビは切って読める
-
-## ルビは「難しい語」の印ではない(L5 の実測)
-
-底本は**光文社文庫『時代推理小説 半七捕物帳』全 6 巻(1985 年初版)**。
-ここにあるルビは大正の連載時のものではなく、**昭和末の校訂による**。
-
-- **ルビが付くとき、それはほぼその話での初出である** —— 掃除した 2,372 語で 4,239/4,338 = 97.7%
-- **ところが同じ語は、現れる話のうち約 4 割でしか振られない** ——
-  つまり「難しいから振る」のではなく、話ごとに振るか振らないかが分かれている
-- **なぜ分かれるのかは、本文だけからは説明できなかった。**底本の早い巻(一〜三)と
-  遅い巻(四〜六)の両方に現れる 777 語で比べても 39.7% と 38.4% でほぼ同じ。
-  話の長さとの相関も弱い(r = −0.23)
-
-字数とルビ数の相関は r = 0.92 だが、これは長い話の梃子に支えられている ——
-最長の 69「白蝶怪」を外すと 0.72、長い上位 5 話を外すと 0.645 まで下がる。
-一つの数だけを出さない。
 
 ## 捜査圏(L4 の実測)
 
